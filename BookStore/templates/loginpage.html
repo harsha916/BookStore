@@ -1,0 +1,73 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css.map'%}">
+    <style>
+      .secstyl
+      {
+      background-image:url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=628&q=80');
+      background-repeat:no-repeat;
+      background-size:100%;
+      }
+      </style>
+    <title>Login page</title>
+</head>
+<body class="secstyl">
+  <form action="" method="POST">{% csrf_token %}
+    <section class="vh-100">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center" style="background-color:#5075fc ;">
+                        <h3>BookStore</h3>  
+                </div>
+              <div class="card shadow-2-strong" style="border-radius: 1rem;">
+
+                <div class="card-body p-5 text-center">
+                  <h3 class="mb-5">Sign in</h3>
+      
+                  <div class="form-outline mb-4">
+                    <input type="text"  name ="username" class="form-control form-control-lg" />
+                    <label class="form-label" >Username</label>
+                  </div>
+      
+                  <div class="form-outline mb-4">
+                    <input type="password" name="password" class="form-control form-control-lg" />
+                    <label class="form-label">Password</label>
+                  </div>
+      
+                  <!-- Checkbox -->
+      
+                  <button class="btn btn-primary btn-lg btn-block" type="submit" >Login</button>
+                     <b style="color: red;">{{loginerror}}</b>
+                     <b style="color: red;">{{loginfailed}}</b>
+            
+      
+                </div>
+                <div class="card-body p-2 text-center" style="background-color:#5075fc ;">
+                  <a href="{% url 'registerpage' %}"><h4 class="btn btn-primary">Click here to register</h4></a>  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </form>
+</body>
+</html>
+{% endblock content %}

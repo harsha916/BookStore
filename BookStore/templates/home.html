@@ -1,0 +1,78 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css.map'%}">
+    <style>
+      .secstyle
+      {
+      background-image:url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=628&q=80');
+      background-repeat:no-repeat;
+      background-size:100%;
+      }
+      </style>
+  <title>Home</title>
+</head>
+<body class="secstyle">
+  <nav class="navbar navbar-expand-lg bg-light">
+    <a class="btn btn-primary" href="{% url 'mainpage' %}">BookStore</a>
+    <div class="container-fluid">
+      <b class="navbar-brand" style="text-align:center;">Home</b>
+    </div>
+    <div class="navbar-brand">
+      <b class="text-primary">user:</b>{{store}}
+      <a href="{% url 'loginpage' %}" class="btn btn-primary">Logout</a>
+    </div>
+  </nav>
+  <section>
+    <section class="vh-1000">
+      <div class="container py-5 h-100">
+              <div class="card" style="border-radius: 1rem; width:500px;">
+                  <div class="card-body p-2" >
+                      <b style="padding: 10px;">Studing Books are like Studing lives</b>  
+              </div>
+        </div>
+      </div>
+      <div class="container py-10 h-100">
+        <form action="" method="POST">{% csrf_token %}
+        <div class="card" style="border-radius: 1rem; width:500px; height: 500px;">
+            <div class="card-body p-2" >
+                <b style="padding: 10px;">Select the first alpabet of the book which you wants to buy</b> 
+                  <select class="btn btn-primary" name ="alph" style="width: 475px; ">
+                    <option selected disabled=True>Alphabets</option>
+                    <option value="a">A ---> Related Books</option>
+                    <option value="b">B ---> Related Books</option>
+                    <option value="c">C ---> Related Books</option>
+                  </select>
+                  <b style="color: red;">{{error}}</b>
+        </div>
+        <button class="btn btn-primary" type="submit" name = "sub-btn" style="position: relative;bottom: 15px;">Submit</button>
+  </div>
+  <div class="col-md-4 col-md-offset-3" style="margin-left:750px ; margin-top:-500px;">
+    <div class="form-group has-feedback">
+    <label for="search" class="sr-only">Search</label>
+    <input type="text" class="form-control" name="search" id="search" placeholder="search">
+      <span class="glyphicon glyphicon-search form-control-feedback"></span>
+      <button class="btn btn-primary" name="search-btn" type="submit" style="margin-left:270px ;">Search</button>
+      <b style="color: beige;">{{msg}} {{bookname}} </b>
+</form>
+</div>
+  </section>
+      </div>
+</div>
+</body>
+</html>
+{% endblock content %}

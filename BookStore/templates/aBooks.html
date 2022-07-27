@@ -1,0 +1,81 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css.map'%}">
+    <style>
+      .secstyle
+      {
+      background-image:url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=628&q=80');
+      background-repeat:no-repeat;
+      background-size:100%;
+      }
+      </style>
+  <title>A Related Books</title>
+</head>
+<body class="secstyle">
+  <nav class="navbar navbar-expand-lg bg-light">
+    <a class="btn btn-primary" href="{% url 'mainpage' %}">BookStore</a>
+    <div class="container-fluid">
+      <b class="navbar-brand" style="text-align:center;">A Related Books</b>
+    </div>
+    <div class="navbar-brand">
+      <b class="text-primary">user:</b>{{store}}
+      <a href="{% url 'loginpage' %}" class="btn btn-primary">Logout</a>
+    </div>
+  </nav>
+  <section>
+    <section class="vh-1000">
+      <div class="container py-5 h-100">
+              <div class="card" style="border-radius: 1rem; width:575px;">
+                  <div class="card-body p-2" >
+                      <b style="padding: 10px;">Below are the Books available from 'A' Alphabet</b>  
+              </div>
+        </div>
+      </div>
+      <div class="container py-10 h-100">
+        <div class="card" style="border-radius: 1rem; height:300px;width:180px;">
+            <div>
+                <h6><b style="position:relative; left:20px; top:2px; color: blue;">Book Name</b></h6>
+                {% for i in abooks %}
+                <b style="position:relative; left:30px;">{{ i }}</b><br>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="card" style="border-radius: 1rem; left:200px; top:-300px;height:300px;width:180px;">
+            <div>
+                <h6><b style="position:relative; left:20px; top:5px; color: blue;">Book Price</b></h6>
+                {% for i in aprice %}
+                <b style="position:relative; left:30px;">{{ i }}</b><br>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="card" style="border-radius: 1rem; left:400px; top:-600px;height:300px;width:180px;">
+            <div>
+                <h6><b style="position:relative; left:20px; top:5px; color: blue;">More Info</b></h6>
+                {% for i in aurl %}
+                <a style="position:relative; left:30px;" href="{{ i }}">click here</a><br>
+                {% endfor %}
+            </div>
+        </div>
+
+</div>
+  </section>
+</body>
+</html>
+{% endblock content %}

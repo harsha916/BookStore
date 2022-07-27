@@ -1,0 +1,75 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css.map'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css.map'%}">
+    <style>
+    .secstyl
+      {
+      background-image:url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=628&q=80');
+      background-repeat:no-repeat;
+      background-size:100%;
+      }
+      </style>
+    <title>Registration page</title>
+</head>
+<body class="secstyl">
+    <form action="" method="POST">{% csrf_token %}
+      <nav class="navbar navbar-expand-lg bg-light">
+        <a class="btn btn-primary" href="{% url 'loginpage' %}">BookStore</a>
+        <div class="container-fluid">
+          <b class="navbar-brand" style="text-align:center;">Register</b>
+        </div>
+      </nav>
+      <section class="vh-100" >
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-120">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;"></div>
+              <div class="card shadow-2-strong" style="border-radius: 1rem;">
+
+                <div class="card-body p-5 text-center">
+                  <div class="form-outline mb-4">
+                    <input type="text"  name ="username" class="form-control form-control-lg" />
+                    <label class="form-label" >Name</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="text"  name ="email" placeholder="harsha123@gmail.com" class="form-control form-control-lg" />
+                    <label class="form-label" >email</label>
+                  </div>
+      
+                  <div class="form-outline mb-4">
+                    <input type="password" name="password" class="form-control form-control-lg" />
+                    <label class="form-label">Password</label>
+                  </div>
+      
+                  <!-- Checkbox -->
+      
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button> 
+                   <b style="color: red;">{{registererror}}</b>
+                   <b style="color: green;">{{success}}</b>
+                   <b style="color: red;">{{failed}}</b> 
+                   <b style="color: red;">{{already_added}}</b>
+      
+              </div>
+            </div>
+          </div>
+        </div>
+    </form>
+</body>
+</html>
+{% endblock content %}
